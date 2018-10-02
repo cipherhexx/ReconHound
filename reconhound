@@ -1,0 +1,73 @@
+#!/bin/bash
+cat << "EOF" | lolcat
+
+██████╗ ███████╗ ██████╗ ██████╗ ███╗   ██╗      ██╗  ██╗ ██████╗ ██╗   ██╗███╗   ██╗██████╗
+██╔══██╗██╔════╝██╔════╝██╔═══██╗████╗  ██║      ██║  ██║██╔═══██╗██║   ██║████╗  ██║██╔══██╗
+██████╔╝█████╗  ██║     ██║   ██║██╔██╗ ██║█████╗███████║██║   ██║██║   ██║██╔██╗ ██║██║  ██║
+██╔══██╗██╔══╝  ██║     ██║   ██║██║╚██╗██║╚════╝██╔══██║██║   ██║██║   ██║██║╚██╗██║██║  ██║
+██║  ██║███████╗╚██████╗╚██████╔╝██║ ╚████║      ██║  ██║╚██████╔╝╚██████╔╝██║ ╚████║██████╔╝
+╚═╝  ╚═╝╚══════╝ ╚═════╝ ╚═════╝ ╚═╝  ╚═══╝      ╚═╝  ╚═╝ ╚═════╝  ╚═════╝ ╚═╝  ╚═══╝╚═════╝
+
+
+EOF
+echo ""
+PS3='Please enter your choice: '
+options=("Whois Lookup" "DNS Lookup" "Zone Transfer" "Port Scan" "HTTP Header Detector" "Link Grabber" "Ip To Location" "Traceroute" "Exit"
+)
+select opt in "${options[@]}"
+do
+    case $opt in
+        "Whois Lookup")
+            echo "Enter The Website"
+            read site
+            lynx -dump http://api.hackertarget.com/whois/?q=$site
+            echo ""
+            ;;
+        "DNS Lookup")
+            echo "Enter The Website"
+            read site
+            lynx -dump http://api.hackertarget.com/dnslookup/?q=$site
+            echo ""
+            ;;
+        "Zone Transfer")
+            echo "Enter The Website"
+            read site
+            lynx -dump http://api.hackertarget.com/zonetransfer/?q=$site
+            echo ""
+            ;;
+        "Port Scan")
+            echo "Enter The Website"
+            read site
+            lynx -dump http://api.hackertarget.com/nmap/?q=$site
+            echo ""
+            ;;
+        "HTTP Header Detector")
+            echo "Enter The Website"
+            read site
+            lynx -dump http://api.hackertarget.com/httpheaders/?q=$site
+            echo ""
+            ;;
+        "Link Grabber")
+            echo "Enter The Website"
+            read site
+            lynx -dump https://api.hackertarget.com/pagelinks/?q=$site
+            echo ""
+            ;;
+        "Ip To Location")
+            echo "Enter IP Address"
+            read ip 
+            lynx -dump http://ipinfo.io/$ip/geo
+            echo ""
+            ;;
+        "Traceroute")
+            echo "Enter The Website"
+            read site
+            lynx -dump https://api.hackertarget.com/mtr/?q=$site
+            echo ""
+            ;;
+        "Exit")
+            break
+            ;;
+            *) echo "invalid option $REPLY";;
+            esac
+            done
