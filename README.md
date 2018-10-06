@@ -9,7 +9,7 @@ Zone Transfer, Link Grabber all this with use of API so that yout personal infor
 # How To Install
 Copt paste the following commands 
 
-apt install lynx -y
+bash setup
 
 git clone https://github.com/cipherhexx/ReconHound
 
@@ -20,4 +20,6 @@ chmod +x reconhound
 ./reconhound
 
 # problems?
+
 If you have any problem in the script then please open a issue or mail me on cipherhexx@gmail.com thankyou :)
+
