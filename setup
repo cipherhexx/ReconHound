@@ -1,0 +1,8 @@
+apt update -y
+apt upgrade -y
+apt install python -y
+pip install lolcat
+clear
+echo "Setup Complete Now Run The Tool"
+
+
